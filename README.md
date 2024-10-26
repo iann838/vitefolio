@@ -191,7 +191,7 @@ You can place these files in the `public` directory under the `src` directory. A
 Note that you should **reference files placed in public using root absolute path** - for example, `public/example-file.txt` should always be referenced in source code as `/example-file.txt`.
 
 ```md
-<VFDownload text='Download Paper' href='/example-file.txt' as='publication-a.pdf'/> 
+<VFDownload text='Download Paper' href='/example-file.txt' as='publication-a.txt'/> 
 <!-- Download button for file at `public/example-file.txt` -->
 ```
 
@@ -219,7 +219,7 @@ ViteFolio has 2 extra grobally imported components:
 <VFDownload
     text='Download Paper'
     href='/example-file.txt'
-    as='publication-a.pdf'
+    as='publication-a.txt'
 />
 ```
 
