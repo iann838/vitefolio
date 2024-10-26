@@ -198,6 +198,8 @@ Note that you should **reference files placed in public using root absolute path
 <!-- Download button for file at `public/example-file.txt` -->
 ```
 
+When adding files or making changes to the public directory, you might need to do a **cold deep reload** on your site using **Ctrl F5**, as the browser might be caching old responses for these files.
+
 ## Vue Components
 
 You can use HTML tags or [Vue components](https://vitepress.dev/guide/using-vue) in markdown files.
