@@ -151,7 +151,7 @@ ViteFolio configuration:
 
 ## Custom domain
 
-You may use a custom domain for your site by going to Settings -> Pages -> Custom domain. After entering your custom domain, ensure that the required CNAME DNS records are set correctly on your DNS provider.
+You may use a custom domain for your site by going to Settings -> Pages -> Custom domain. After entering your custom domain, ensure that the required CNAME DNS records are also created correctly on your DNS provider.
 
 ```
 CNAME <recordname> <githubusername>.github.io
