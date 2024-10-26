@@ -116,8 +116,20 @@ ViteFolio configuration:
     - profile
         - title: An extra title below your avatar.
         - bio: Short bio or tag line.
-        - avatar: Asset link to your avatar, can be local stored in `/assets/{filename}` (referenced as `/assets/{filename}`).
-        - links: Array of `{ icon: string, link: string }`. Supported icons: `"discord" | "facebook" | "github" | "instagram" | "linkedin" | "mastodon" | "npm" | "slack" | "twitter" | "x" | "youtube"`. If your desired icon is not available, it also receives an svg string of your icon as `{ svg: '<svg>...</svg>' }`. 
+        - avatar: Asset link to your avatar.
+        - links: Array of `{ icon: string, link: string }`. Supported icons:
+            - `'discord'`
+            - `'facebook'`
+            - `'github'`
+            - `'instagram'`
+            - `'linkedin'`
+            - `'mastodon'`
+            - `'npm'`
+            - `'slack'`
+            - `'twitter'`
+            - `'x'`
+            - `'youtube'`.
+            - `{ svg: '<svg>...</svg>' }` If an icon is not available, it can receive an svg string instead. 
 
         ```ts
         
