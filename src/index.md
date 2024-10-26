@@ -9,9 +9,6 @@ hero:
   tagline: Tagline or short biography or a personal quote Tagline or short biography or a personal quote Tagline or short biography or a personal quote
   actions:
     - theme: brand
-      text: Contact
-      link: /markdown-examples
-    - theme: alt
       text: Resume
       link: /resume.md
     - theme: alt
