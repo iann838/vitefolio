@@ -11,5 +11,5 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 
 ---
 
-<VFDownload text='Download Paper' href='/assets/example-file.txt' as='publication-a.pdf'/> 
-<VFDownload text='Download Slides' href='/assets/example-file.txt' as='publication-a.pptx'/>
+<VFDownload text='Download Paper' href='/example-file.txt' as='publication-a.pdf'/> 
+<VFDownload text='Download Slides' href='/example-file.txt' as='publication-a.pptx'/>

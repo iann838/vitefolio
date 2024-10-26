@@ -149,28 +149,6 @@ ViteFolio configuration:
         }
         ```
 
-## Custom domain
-
-You may use a custom domain for your site by going to Settings -> Pages -> Custom domain. After entering your custom domain, ensure that the required CNAME DNS records are also created correctly on your DNS provider.
-
-```
-CNAME <recordname> <githubusername>.github.io
-```
-
-## Sitemap generation
-
-A sitemap is a file where you provide information about the pages, videos, and other files on your site, and the relationships between them. Search engines like Google read this file to crawl your site more efficiently.
-
-VitePress will automatically generate a sitemap file at `/sitemap.xml` after building. **Replace the sitemap hostname** on your config file to ensure the sitemap content is correct.
-
-```ts
-export default {
-    sitemap: {
-        hostname: 'https://yourhosteddomain.com',
-    }
-}
-```
-
 ## Link Routing
 
 Internal links are converted to router link for navigation. Also, every `index.md` contained in each sub-directory will automatically be converted to `index.html`, with corresponding URL `/`.
@@ -204,36 +182,17 @@ And providing you are in `foo/one.md`:
 
 Pages and internal links get generated with the `.html` suffix by default.
 
-## Asset Handling
+## Public Directory
 
-```
-.
-├─ src
-│  ├─ index.md
-│  ├─ files
-│  │  └─ ...
-│  └─ ... 
-└─ package.json
-```
+Static assets that are not directly referenced in any of your Markdown or theme components, or you may want to serve certain files with the original filename. Examples of such files include **`robots.txt`, favicons, PDFs, videos, audio, images, media files**.
 
-The base directory is `src`, all files inside the base directory is compiled. When referencing files in the base directory, `src/` is ommitted and the reference starts with `/` (e.g. `/index.md`)
+You can place these files in the `public` directory under the `src` directory. Assets placed in public will be copied to the root of the output directory **as-is**.
 
-It is encouraged to add your non markdown files to the `/assets/` directory, then referencing it using `/assets/...`. For example:
+Note that you should **reference files placed in public using root absolute path** - for example, `public/example-file.txt` should always be referenced in source code as `/example-file.txt`.
 
 ```md
-![An image](/assets/image.png)
-```
-
-If you put assets next to your markdown files, you can reference assets using relative URLs:
-
-```md
-![An image](./image.png)
-```
-
-It also allows using external asset URLs:
-
-```md
-![An image](https://example.com/image.png)
+<VFDownload text='Download Paper' href='/example-file.txt' as='publication-a.pdf'/> 
+<!-- Download button for file at `public/example-file.txt` -->
 ```
 
 ## Vue Components
@@ -259,7 +218,7 @@ ViteFolio has 2 extra grobally imported components:
 ```md
 <VFDownload
     text='Download Paper'
-    href='/assets/example-file.txt'
+    href='/example-file.txt'
     as='publication-a.pdf'
 />
 ```
@@ -277,3 +236,25 @@ List of markdown extensions supported by the VitePress engine.
 - [Markdown File Inclusion](https://vitepress.dev/guide/markdown#markdown-file-inclusion)
 - [Math Equations](https://vitepress.dev/guide/markdown#math-equations)
 - [Image Lazy Loading](https://vitepress.dev/guide/markdown#image-lazy-loading)
+
+## Custom domain
+
+You may use a custom domain for your site by going to Settings -> Pages -> Custom domain. After entering your custom domain, ensure that the required CNAME DNS records are also created correctly on your DNS provider.
+
+```
+CNAME <recordname> <githubusername>.github.io
+```
+
+## Sitemap generation
+
+A sitemap is a file where you provide information about the pages, videos, and other files on your site, and the relationships between them. Search engines like Google read this file to crawl your site more efficiently.
+
+VitePress will automatically generate a sitemap file at `/sitemap.xml` after building. **Replace the sitemap hostname** on your config file to ensure the sitemap content is correct.
+
+```ts
+export default {
+    sitemap: {
+        hostname: 'https://yourhosteddomain.com',
+    }
+}
+```
