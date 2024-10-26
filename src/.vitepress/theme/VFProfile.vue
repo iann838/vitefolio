@@ -12,7 +12,9 @@
     <div class="mt-16px profile-links">
         <div v-for="link in profile.links" style="">
             <VPSocialLink :icon="link.icon" :link="link.link"/>
-            <a :href="link.link"><small>{{ link.link.split("/").reverse()[0] }}</small></a>
+            <a :href="link.link">
+                <small>{{ link.text || link.link.split("/").reverse()[0].split("?")[0] }}</small>
+            </a>
         </div>
     </div>
 </template>

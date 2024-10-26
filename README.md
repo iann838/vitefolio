@@ -114,22 +114,25 @@ ViteFolio configuration:
         ```
 
     - profile
-        - title: An extra title below your avatar.
+        - title: An extra title below your avatar. Optional.
         - bio: Short bio or tag line.
         - avatar: Asset link to your avatar.
-        - links: Array of `{ icon: string, link: string }`. Supported icons:
-            - `'discord'`
-            - `'facebook'`
-            - `'github'`
-            - `'instagram'`
-            - `'linkedin'`
-            - `'mastodon'`
-            - `'npm'`
-            - `'slack'`
-            - `'twitter'`
-            - `'x'`
-            - `'youtube'`.
-            - `{ svg: '<svg>...</svg>' }` If an icon is not available, it can receive an svg string instead. 
+        - links: Array of `{ icon: string, href: string, text?: string }`.
+            - icon:
+                - `'discord'`
+                - `'facebook'`
+                - `'github'`
+                - `'instagram'`
+                - `'linkedin'`
+                - `'mastodon'`
+                - `'npm'`
+                - `'slack'`
+                - `'twitter'`
+                - `'x'`
+                - `'youtube'`
+                - `{ svg: '<svg ...>...</svg>' }`
+            - href: Link to social website.
+            - text: Display text. Optional, default to last path param of href. 
 
         ```ts
         
@@ -141,8 +144,8 @@ ViteFolio configuration:
                     avatar: 'https://www.github.com/iann838.png',
                     links: [
                         { icon: 'github', link: 'https://github.com/iann838' },
-                        { icon: 'twitter', link: 'https://twitter.com/youruser' },
-                        // or { icon: { svg: '<svg>...</svg>' }, link: '...' }
+                        { icon: 'x', link: 'https://x.com/iann838' },
+                        // { icon: { svg: '<svg >...</svg>' }, link: '...' }
                     ]
                 }
             }

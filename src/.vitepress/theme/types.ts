@@ -7,6 +7,7 @@ export interface Profile {
     links: {
         icon: DefaultTheme.SocialLinkIcon,
         link: string
+        text?: string
     }[]
 }
 
