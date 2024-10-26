@@ -142,12 +142,14 @@ ViteFolio configuration:
 You may use a custom domain for your site by going to Settings -> Pages -> Custom domain. After entering your custom domain, ensure that the required CNAME DNS records are set correctly on your DNS provider.
 
 ```
-CNAME <yourdomain> <githubusername>.github.io
+CNAME <recordname> <githubusername>.github.io
 ```
 
 ## Sitemap generation
 
-A sitemap is a file where you provide information about the pages, videos, and other files on your site, and the relationships between them. Search engines like Google read this file to crawl your site more efficiently. **Replace the sitemap hostname** on your config file to generate a correct sitemap.
+A sitemap is a file where you provide information about the pages, videos, and other files on your site, and the relationships between them. Search engines like Google read this file to crawl your site more efficiently.
+
+VitePress will automatically generate a sitemap file at `/sitemap.xml` after building. **Replace the sitemap hostname** on your config file to ensure the sitemap content is correct.
 
 ```ts
 export default {
