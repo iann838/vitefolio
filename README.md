@@ -3,16 +3,20 @@
 
 ViteFolio is a portfolio and academic pages template powered by Vue and [VitePress](https://vitepress.dev).
 
+Demo: https://vitefolio.iann838.com/
+
 ## Getting Started
 
 1. Create a new repository using this template.
     > Click "Use this template" button top right.
-1. Enter your repository name as `{username}.github.io`.
-    > If `{username}.github.io` is used as repository name, then that is your site's domain. Otherwise, it will be in subdirectory named after the repository of said domain.
+1. Enter your repository name as `{username}.github.io` (optional).
+    > If `{username}.github.io` is used as repository name, then that is your site's domain.
 1. Enable GitHub Pages with source GitHub Actions.
     > Settings -> Pages -> Build and Deployment -> Source -> GitHub Actions.
 1. Check deployment status at the Actions tab.
     > You might need a rerun due to GitHub Actions not yet being enabled.
+1. Access the deployed site on your browser.
+    > `https://{username}.github.io` if step 2, else `https://{username}.github.io/{repository}`.
 
 ## Local Development
 
