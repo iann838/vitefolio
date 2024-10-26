@@ -257,7 +257,12 @@ VitePress will automatically generate a sitemap file at `/sitemap.xml` after bui
 ```ts
 export default {
     sitemap: {
+        // REPLACE this with your hosted URL for sitemap to work!
         hostname: 'https://yourhosteddomain.com',
     }
 }
 ```
+
+## Star me!
+
+Star this repo if you find it helpful!

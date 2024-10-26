@@ -6,6 +6,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     title: "Name LastName",
     description: "Site description or title description",
     sitemap: {
+        // REPLACE this with your hosted URL for sitemap to work!
         hostname: 'https://yourhosteddomain.com',
     },
     lastUpdated: true,
