@@ -209,38 +209,70 @@ From `foo/one.md`:
 Pages generate with `.html` suffixes by default (e.g., `/foo/one.html`), but links work without them.
 
 ## Public Directory
-The `public/` folder is for static files not referenced in Markdown or components, like `robots.txt`, favicons, PDFs, videos, or images. Files copy to the site's root during build.
 
-Reference with root-absolute paths, e.g., `/example-file.txt` for `public/example-file.txt`.
+The `public/` folder in your repository is a special directory for storing static assets—files that don't need to be processed by VitePress during the build process. These could include configuration files for search engines, icons, downloadable documents, media, or any other resources you want to serve directly without modification. During the site build (e.g., when you run `npm run build`), all files in `public/` are automatically copied to the root of the output directory (`dist/`) exactly as they are, preserving their original filenames and structure.
 
-Example download button:
-```md
-<VFDownload text='Download Paper' href='/example-file.txt' as='publication-a.txt'/>
-```
+This is useful for:
+- Site metadata files like `robots.txt` (controls search engine crawling) or `sitemap.xml` (though VitePress can generate sitemaps automatically—see the Sitemap Generation section).
+- Favicons (e.g., `favicon.ico` for browser tabs—reference in your config's `head` array).
+- Downloadable files like PDFs (e.g., your resume or publications), videos, audio clips, or large images.
+- Any other static content not directly embedded in your Markdown pages or Vue components.
 
-After changes, refresh with Ctrl+F5 to clear browser cache.
+### How to Use It
+1. **Adding Files**: Simply place your files directly into the `public/` folder at the root of your repository. You can organize them into subfolders if needed (e.g., `public/images/` or `public/downloads/`), and the structure will be preserved in the built site.
 
-## Vue Components
-Use HTML or [Vue components](https://vitepress.dev/guide/using-vue) in Markdown.
+2. **Referencing Files**: Always use root-absolute paths starting with `/` when linking to these files in your Markdown, config, or components. This ensures they resolve correctly regardless of the page's URL.
+   - For a file at `public/example-file.txt`, reference it as `/example-file.txt`.
+   - For a subfolder like `public/downloads/paper.pdf`, use `/downloads/paper.pdf`.
 
-ViteFolio adds two global components:
+   Examples in Markdown:
+   - Link to a PDF: `[Download Resume](/resume.pdf)`
+   - Embed an image: `![Profile Photo](/images/profile.jpg)`
+   - In your config.mts (e.g., for avatar): `avatar: '/avatar.png'`
 
-- **<VFDownload />**: A download button.
-  - `text`: Button text (e.g., 'Download Paper').
-  - `href`: File URL (e.g., '/example-file.txt').
-  - `as`: Save-as filename (e.g., 'publication-a.txt').
-  - `theme`: 'brand' (default), 'alt', or 'sponsor'.
-  - `size`: 'medium' (default) or 'big'.
+3. **Example: File Download Button with VFDownload**
+   Use the custom `<VFDownload />` component to create a styled button for downloads:
+   ```md
+   <VFDownload text='Download Paper' href='/example-file.txt' as='publication-a.txt'/>
+   ```
+   - This renders a button labeled "Download Paper" that links to `/example-file.txt` (from `public/`) and suggests saving it as `publication-a.txt`.
+   - Tip: Upload your file to `public/example-file.txt` first.
 
-- **<VPButton />**: A general button.
-  - `text`: Button text.
-  - `href`: Link URL (local or external).
-  - `theme`: 'brand' (default), 'alt', or 'sponsor'.
-  - `size`: 'medium' (default) or 'big'.
+Browsers and development servers cache static files aggressively. After adding or updating files in `public/`, you might not see changes immediately. Force a refresh with Ctrl+F5 (or Cmd+Shift+R on Mac) in your browser to clear the cache. In production, consider versioning filenames (e.g., `resume-v2.pdf`) for cache busting.
+
+## Buttons and Downloads
+
+VitePress lets you add interactive elements to Markdown using HTML or [Vue components](https://vitepress.dev/guide/using-vue).
+
+ViteFolio provides two global components for buttons, usable directly in .md files.
+
+### `<VFDownload />`: For Downloads
+Creates a button to download files (e.g., PDFs from `public/`).
+
+Props:
+- `text`: Button label (required, e.g., 'Download Paper').
+- `href`: File URL (required, e.g., '/resume.pdf').
+- `as`: Suggested save name (optional, e.g., 'my-resume.pdf').
+- `theme`: 'brand' (default), 'alt', or 'sponsor'.
+- `size`: 'medium' (default) or 'big'.
 
 Example:
 ```md
-<VFDownload text='Download Paper' href='/example-file.txt' as='publication-a.txt'/>
+<VFDownload text="Download Resume" href="/resume.pdf" as="John_Doe_Resume.pdf" />
+```
+
+### `<VPButton />`: General Button
+For links to pages or sites.
+
+Props:
+- `text`: Button label (required, e.g., 'View Project').
+- `href`: URL (required, e.g., '/projects/' or 'https://github.com/').
+- `theme`: 'brand' (default), 'alt', or 'sponsor'.
+- `size`: 'medium' (default) or 'big'.
+
+Example:
+```md
+<VPButton text="View on GitHub" href="https://github.com/yourusername" />
 ```
 
 ## Markdown Extensions
