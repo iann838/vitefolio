@@ -334,20 +334,47 @@ The ViteFolio template includes a pre-configured GitHub Actions workflow (locate
 Other options: Netlify, Vercel. See [VitePress deployment guide](https://vitepress.dev/guide/deploy).
 
 ## Custom Domain
-For a custom domain (e.g., www.yourname.com):
-1. Go to Settings -> Pages -> Custom domain.
-2. Enter your domain.
-3. Add a CNAME record on your DNS provider: `CNAME <yourdomain> <username>.github.io`.
+
+Using a custom domain (e.g., www.yourname.com) makes your GitHub Pages site look more professional. GitHub provides free HTTPS certificates via Let's Encrypt.
+
+### Prerequisites
+- GitHub Pages must be enabled and deployed.
+- Own a domain from a registrar (e.g., Namecheap).
+- DNS changes may take up to 24 hours to propagate.
+
+### Setup Steps
+1. **Add Domain in GitHub**:
+   - Repo Settings > Pages > Custom domain.
+   - Enter your domain (e.g., www.yourname.com) and Save. GitHub checks DNS and adds a CNAME file if needed.
+
+2. **Configure DNS Records**:
+   - In your DNS provider's panel:
+     - **Subdomain (e.g., www)**: CNAME record – Name: www, Value: username.github.io.
+     - **Apex (e.g., yourname.com)**: A records to 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153; AAAA for IPv6: 2606:50c0:8000::153, etc. Or use ALIAS to username.github.io.
+   - Add both for apex and www if needed—GitHub handles redirects.
+
+3. **Verify**:
+   - GitHub Pages shows DNS status. Use `dig yourdomain.com` to check.
+   - HTTPS activates automatically.
+
 
 ## Sitemap Generation
-A sitemap helps search engines index your site. VitePress generates `/sitemap.xml` on build.
 
-Update in `config.mts`:
+A sitemap lists your site's pages to help search engines like Google index them better, improving visibility.
+
+VitePress auto-generates `/sitemap.xml` on build (via `npm run build`).
+
+Configure in `src/.vitepress/config.mts`:
 ```typescript
-sitemap: {
-  hostname: 'https://yourhosteddomain.com', // Replace with your URL
+export default {
+  // themeConfig: { ... other config }
+  sitemap: {
+    hostname: 'https://yourhosteddomain.com', // Required: Your site's URL
+  }
 }
 ```
+
+Rebuild to generate; submit to Google Search Console. See [VitePress guide](https://vitepress.dev/guide/sitemap-generation) for more.
 
 ## Troubleshooting
 - **Errors during install?** Update Node.js and try `npm cache clean --force`.
