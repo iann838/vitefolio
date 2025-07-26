@@ -15,12 +15,11 @@ ViteFolio is designed as a GitHub template repository. This means you can easily
 ## Getting Started
 Follow these steps to set up your own site based on this template. You'll need a computer with [Node.js](https://nodejs.org/) installed (version 14 or higher is recommended—download the LTS version if you're new). No prior experience with web development is required, but we'll explain each step.
 
-### Step 1: Create Your Own Repository
-1. Go to the [ViteFolio GitHub page](https://github.com/iann838/vitefolio).
-2. Click the green **Use this template** button (near the top-right).
-3. Choose **Create a new repository**.
-4. Give your new repo a name (e.g., `yourusername.github.io` for GitHub Pages hosting), and make it public if you want it online.
-5. Click **Create repository from template**.
+### Step 1: Create Your Repository
+1. Click the green **Use this template** button (near the top-right).
+2. Choose **Create a new repository**.
+3. Give your new repo a name (e.g., `yourusername.github.io` for GitHub Pages hosting), and make it public if you want it online.
+4. Click **Create repository from template**.
 
 This creates a copy of the template under your GitHub account.
 
@@ -37,12 +36,12 @@ If you're not comfortable with command lines, use GitHub Desktop (download from 
 ### Step 3: Install Dependencies
 Dependencies are the libraries your site needs to run.
 
-1. In your terminal (inside the repo folder), run: `npm install` (or `yarn install` if you prefer Yarn—install Yarn via `npm install -g yarn` first).
+1. In your terminal (inside the repo folder), run: `npm install`.
    
 This installs VitePress and other tools. It might take a minute.
 
 ### Step 4: Start the Development Server
-1. Run: `npm run dev` (or `yarn dev`).
+1. Run: `npm run dev`.
 2. Open a web browser and go to `http://localhost:5173`.
    
 You'll see a live preview of your site. Changes you make to files will update automatically!
@@ -70,14 +69,14 @@ vitefolio/  (your repo root)
     └── example-file.txt  # Example—add your avatar image or resume here
 ```
 
-- **src/**: This is where your website lives. Add or edit Markdown (.md) files here to create pages.
-- **src/.vitepress/config.mts**: The "brain" of your site. It's a TypeScript file (like JavaScript but with extras). Open it in a text editor (e.g., VS Code—free from [code.visualstudio.com](https://code.visualstudio.com/)) and update sections like site title, description, your profile, and navigation.
+- **`src/`**: This is where your website lives. Add or edit Markdown (.md) files here to create pages.
+- **`src/.vitepress/config.mts`**: The "brain" of your site. It's a TypeScript file (like JavaScript but with extras). Open it in a text editor (e.g., VS Code—free from [code.visualstudio.com](https://code.visualstudio.com/)) and update sections like site title, description, your profile, and navigation.
 - **Markdown Files (.md)**: These turn into web pages. Use simple formatting:
   - `# Heading for titles`.
   - `- Bullet lists`.
   - `[Link](https://example.com)` for hyperlinks.
   - `![Image](path/to/image.png)` for pictures (put images in `public/`).
-- **public/**: Drop in files that don't change, like your photo or CV. Reference them in Markdown with paths like `/your-image.png`.
+- **`public/`**: Drop in files that don't change, like your photo or CV. Reference them in Markdown with paths like `/your-image.png`.
 
 For more on VitePress structure, see their [guide on project structure](https://vitepress.dev/guide/routing#project-root).
 
