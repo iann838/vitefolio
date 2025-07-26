@@ -4,6 +4,8 @@ Welcome to ViteFolio! This is a ready-to-use template for creating a personal po
 
 ViteFolio is designed as a GitHub template repository. This means you can easily create your own copy and customize it without needing advanced coding skills—though some basic familiarity with text editing will help.
 
+- Demo: https://vitefolio.iann838.com
+
 ## Key Features
 - **Simple Customization**: Edit a single configuration file to add your name, bio, avatar, social links, and more.
 - **Markdown-Based Content**: Write your pages using easy-to-learn Markdown syntax (like bold text with ** or lists with -).
